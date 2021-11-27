@@ -10,7 +10,7 @@ class FizzBuzzAppTest {
 
     // IO is mocked
     @Test
-    fun `Should prompt for number when app is launched`() {
+    fun should_prompt_for_number_when_app_is_launched() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
@@ -21,7 +21,7 @@ class FizzBuzzAppTest {
             stdIntInputs.removeLast()
         }
 
-        val app = FizzBuzzApp(printOutput, promptInput,"\n")
+        val app = FizzBuzzApp(printOutput, promptInput, "\n")
         app.launch()
 
         // Should prompt for a number
@@ -30,7 +30,7 @@ class FizzBuzzAppTest {
     }
 
     @Test
-    fun `Should print 1 when 1 is provided`() {
+    fun should_print_1_when_1_is_provided() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
@@ -41,7 +41,7 @@ class FizzBuzzAppTest {
             stdIntInputs.removeLast()
         }
 
-        val app = FizzBuzzApp(printOutput, promptInput,"\n")
+        val app = FizzBuzzApp(printOutput, promptInput, "\n")
         app.launch()
 
         // Should prompt for a number
@@ -55,7 +55,7 @@ class FizzBuzzAppTest {
     }
 
     @Test
-    fun `Should print 1 then 2 when 2 is provided`() {
+    fun should_print_1_then_2_when_2_is_provided() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
@@ -66,7 +66,7 @@ class FizzBuzzAppTest {
             stdIntInputs.removeLast()
         }
 
-        val app = FizzBuzzApp(printOutput, promptInput,"\n")
+        val app = FizzBuzzApp(printOutput, promptInput, "\n")
         app.launch()
 
         // Should prompt for a number

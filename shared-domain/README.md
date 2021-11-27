@@ -3,9 +3,10 @@
 Multiplatform Core domain & domain orchestration
 
 Can be published as library targeting
+
 - js
-  - browser
-  - nodeJs
+    - browser
+    - nodeJs
 - jvm
 
 ## Architecture
@@ -13,3 +14,13 @@ Can be published as library targeting
 Here, we only write common code (we should never use `actual` keyword in the `domain` package)
 
 Only unit tests against no I/O.
+
+## Limitations
+
+```kotlin
+fun `a function with such a name`() {
+    // is not supported for Js target
+    // Error :
+    // Name contains illegal chars that can't appear in JavaScript identifier
+}
+```
