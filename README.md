@@ -1,5 +1,7 @@
 # Kotlin multiplatform code reuse
 
+[![Gradle Build](https://github.com/marc-bouvier/kotlin-multiplatform-clean-archi/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/marc-bouvier/kotlin-multiplatform-clean-archi/actions/workflows/gradle-publish.yml)
+
 - [shared-domain](shared-domain/README.md) : common domain logic & orchestration
     - can generate reusable for jvm & js targets
     - unit tests are run against various targets (jvm, js : multiple browsers)
