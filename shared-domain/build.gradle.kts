@@ -30,14 +30,8 @@ kotlin {
         browser {
             testRuns["test"].executionTask.configure {
                 useKarma {
-                    // Note : to be used, browsers have to be installed on the machine
-//                    useChrome()
-//                    useChromeCanary()
-//                    useChromeHeadless()
-                    useFirefox()
                     useFirefoxHeadless()
                     usePhantomJS()
-//                    useOpera()
                 }
             }
         }
