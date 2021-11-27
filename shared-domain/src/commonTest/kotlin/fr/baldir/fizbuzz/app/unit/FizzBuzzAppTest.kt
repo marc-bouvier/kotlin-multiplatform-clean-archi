@@ -8,75 +8,70 @@ import kotlin.test.assertEquals
 // given user's interactions
 class FizzBuzzAppTest {
 
-    // IO is mocked
     @Test
     fun should_prompt_for_number_when_app_is_launched() {
 
-        // Test dependencies
-        val stdOutContent = mutableListOf<String>()
-        val printOutput: (text: Any) -> Unit = { stdOutContent.add(it.toString()) }
-        val stdIntInputs = mutableListOf("q")
-        val promptInput: (message: String) -> String = { message ->
-            printOutput(message)
-            stdIntInputs.removeLast()
-        }
+        val output = mutableListOf<String>()
+        val app = given_a_FizzBuzz_app_taking_input(output, mutableListOf("q"))
 
-        val app = FizzBuzzApp(printOutput, promptInput, "\n")
-        app.launch()
+        when_FizzBuzz_app_is_launched(app)
 
-        // Should prompt for a number
-        val actualCliOutput = stdOutContent.joinToString("\n")
-        assertEquals("Please enter a positive integer:", actualCliOutput)
+        assert_FizzBuzz_output_is(output, "Please enter a positive integer:")
     }
 
     @Test
     fun should_print_1_when_1_is_provided() {
 
-        // Test dependencies
-        val stdOutContent = mutableListOf<String>()
-        val printOutput: (text: Any) -> Unit = { stdOutContent.add(it.toString()) }
-        val stdIntInputs = mutableListOf("1")
-        val promptInput: (message: String) -> String = { message ->
-            printOutput(message)
-            stdIntInputs.removeLast()
-        }
+        val output = mutableListOf<String>()
+        val app = given_a_FizzBuzz_app_taking_input(output, mutableListOf("1"))
 
-        val app = FizzBuzzApp(printOutput, promptInput, "\n")
-        app.launch()
+        when_FizzBuzz_app_is_launched(app)
 
-        // Should prompt for a number
-        val actualCliOutput = stdOutContent.joinToString("\n")
-        assertEquals(
+        assert_FizzBuzz_output_is(
+            output,
             """Please enter a positive integer:
                 |1
-            """.trimMargin(),
-            actualCliOutput
+            """.trimMargin()
         )
     }
 
     @Test
     fun should_print_1_then_2_when_2_is_provided() {
 
-        // Test dependencies
         val stdOutContent = mutableListOf<String>()
-        val printOutput: (text: Any) -> Unit = { stdOutContent.add(it.toString()) }
-        val stdIntInputs = mutableListOf("2")
-        val promptInput: (message: String) -> String = { message ->
-            printOutput(message)
-            stdIntInputs.removeLast()
-        }
+        val app = given_a_FizzBuzz_app_taking_input(stdOutContent, mutableListOf("2"))
 
-        val app = FizzBuzzApp(printOutput, promptInput, "\n")
-        app.launch()
+        when_FizzBuzz_app_is_launched(app)
 
-        // Should prompt for a number
-        val actualCliOutput = stdOutContent.joinToString("\n")
-        assertEquals(
+        assert_FizzBuzz_output_is(
+            stdOutContent,
             """Please enter a positive integer:
                 |1
                 |2
-            """.trimMargin(),
-            actualCliOutput
+            """.trimMargin()
+        )
+    }
+
+    private fun when_FizzBuzz_app_is_launched(app: FizzBuzzApp) {
+        app.launch()
+    }
+
+    private fun assert_FizzBuzz_output_is(output: MutableList<String>, expectedOutputLines: String) {
+        val actualCliOutput = output.joinToString("\n")
+        assertEquals(expectedOutputLines, actualCliOutput)
+    }
+
+    private fun given_a_FizzBuzz_app_taking_input(
+        output: MutableList<String>,
+        inputs: MutableList<String>
+    ): FizzBuzzApp {
+        return FizzBuzzApp(
+            printOutput = { output.add(it) },
+            promptInput = { message ->
+                output.add(message)
+                inputs.removeLast()
+            },
+            lineSeparator = "\n"
         )
     }
 }
