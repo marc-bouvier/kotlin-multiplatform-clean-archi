@@ -3,8 +3,6 @@ package fr.baldir.fizzbuzz
 import fr.baldir.fizzbuzz.app.FizzBuzzApp
 import kotlinx.browser.*
 import kotlinx.dom.appendText
-import kotlinx.dom.clear
-import org.w3c.dom.HTMLDivElement
 
 external val process: dynamic
 fun main() {

@@ -1,4 +1,4 @@
-package fr.baldir.fizbuzz.app.unit
+package fr.baldir.fizzbuzz.app.unit
 
 import fr.baldir.fizzbuzz.app.FizzBuzzApp
 import kotlin.test.Test
