@@ -10,7 +10,7 @@ class FizzBuzzAppTest {
 
     // IO is mocked
     @Test
-    fun shouldPromptForNumberWhenAppIsLaunched() {
+    fun `Should prompt for number when app is launched`() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
@@ -30,7 +30,7 @@ class FizzBuzzAppTest {
     }
 
     @Test
-    fun shouldPrint1When1IsGiven() {
+    fun `Should print 1 when 1 is provided`() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
@@ -55,7 +55,7 @@ class FizzBuzzAppTest {
     }
 
     @Test
-    fun shouldPrint12When2IsGiven() {
+    fun `Should print 1 then 2 when 2 is provided`() {
 
         // Test dependencies
         val stdOutContent = mutableListOf<String>()
