@@ -29,10 +29,7 @@ kotlin {
     js(IR) {
         browser {
             testRuns["test"].executionTask.configure {
-                useKarma {
-                    useFirefoxHeadless()
-                    usePhantomJS()
-                }
+                useMocha()
             }
         }
         nodejs {
