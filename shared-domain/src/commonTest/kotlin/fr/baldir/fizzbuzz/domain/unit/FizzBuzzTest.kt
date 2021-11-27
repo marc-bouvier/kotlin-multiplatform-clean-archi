@@ -38,5 +38,10 @@ class FizzBuzzTest {
         assertEquals("Buzz", fizzbuzz(10))
     }
 
+    @Test
+    fun `When 15 then should return FizzBuzz`() {
+        assertEquals("FizzBuzz", fizzbuzz(15))
+    }
+
 
 }
