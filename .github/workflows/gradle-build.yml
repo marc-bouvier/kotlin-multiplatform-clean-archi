@@ -23,5 +23,11 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+      - name: Setup Firefox
+        uses: browser-actions/setup-firefox@v0.0.0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+
       - name: Build with Gradle
         run: gradle build
