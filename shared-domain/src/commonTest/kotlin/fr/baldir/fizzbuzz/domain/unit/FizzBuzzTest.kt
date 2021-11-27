@@ -22,4 +22,9 @@ class FizzBuzzTest {
     fun `When 3 then should return Fizz`() {
         assertEquals("Fizz", fizzbuzz(3))
     }
+
+    @Test
+    fun `When 6 then should return Fizz`() {
+        assertEquals("Fizz", fizzbuzz(6))
+    }
 }
