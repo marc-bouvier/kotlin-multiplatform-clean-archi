@@ -9,7 +9,7 @@ repositories {
     mavenLocal()
 }
 kotlin {
-    js {
+    js(IR) {
         browser {
             testRuns["test"].executionTask.configure {
                 useMocha()

@@ -17,8 +17,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 kotlin {
 
     jvm {
-        val main by compilations.getting{
-            kotlinOptions{
+        val main by compilations.getting {
+            kotlinOptions {
                 jvmTarget = "11"
             }
         }
@@ -26,7 +26,7 @@ kotlin {
             useJUnitPlatform()
         }
     }
-    js {
+    js(IR) {
         browser {
             testRuns["test"].executionTask.configure {
                 useKarma {
